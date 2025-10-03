@@ -8,6 +8,8 @@ version: 2
 # Configuration for the documentation build process
 build:
   os: "ubuntu-lts-latest"
+  tools:
+    python: "mambaforge-latest"
   env:
     - SOURCEDIR=doc/source
     - BUILDDIR=$READTHEDOCS_OUTPUT/html
