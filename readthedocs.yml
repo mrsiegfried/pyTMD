@@ -10,10 +10,6 @@ build:
   os: "ubuntu-lts-latest"
   tools:
     python: "3.13"
-  env:
-    - SOURCEDIR=doc/source
-    - BUILDDIR=$READTHEDOCS_OUTPUT/html
-    - SPHINXOPTS="--show-traceback --builder html"
   jobs:
     create_environment:
         - asdf plugin add pixi
@@ -23,7 +19,7 @@ build:
         - pixi install -e doc
     build:
         html:
-          - pixi run -e doc sphinx-build $SPHINXOPTS $SOURCEDIR $BUILDDIR
+          - pixi run -e doc sphinx-build -T -b html doc/source $READTHEDOCS_OUTPUT/html
 
 # Build documentation in the doc/ directory with Sphinx
 sphinx:
